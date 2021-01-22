@@ -4,7 +4,7 @@ module.exports = {
   entry: {
     contextmenu: path.resolve(__dirname, 'src', 'contextmenu.ts'),
     options: path.resolve(__dirname, 'src', 'options.ts'),
-    vendor: ['axios']
+    vendor: ['axios', 'materialize-css']
   },
   output: {
     filename: '[name].js',
@@ -12,15 +12,25 @@ module.exports = {
   },
   module: {
     rules: [
-     {
-      test: /.ts$/,
-      use: 'ts-loader'
-     }
+      {
+        test: /.ts$/,
+        use: 'ts-loader'
+      },
+      {
+        test: /\.css/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: { url: false }
+          }
+        ]
+      }
     ]
-   },
-   resolve: {
+  },
+  resolve: {
     extensions: [
-     '.ts', '.js'
+      '.ts', '.js'
     ]
-   },
+  },
 }

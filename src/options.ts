@@ -1,3 +1,6 @@
+import 'materialize-css/dist/js/materialize.min.js'
+import 'materialize-css/dist/css/materialize.min.css'
+
 interface StorageData {
   name: string,
   domain: string,
@@ -9,7 +12,7 @@ window.onload = () => {
     chrome.storage.local.get(item, (value) => {
       const element : HTMLInputElement = <HTMLInputElement>document.getElementById(item)
       if (value[item]) {
-        element.value = value[item]
+        element.value = value[item];
       }
     })
   });
