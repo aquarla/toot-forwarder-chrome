@@ -11,8 +11,7 @@ interface MastodonSearchResponse {
   }
 }
 
-function forwardToot(info: chrome.contextMenus.OnClickData, favourite: boolean, reblog: boolean) {
-  let tootUrl = info.linkUrl;
+function forwardToot(tootUrl: string, favourite: boolean, reblog: boolean) {
   chrome.storage.local.get(['domain', 'access_token'], (value) => {
     const instance = axios.create({
       baseURL: `https://${value['domain']}/`,
@@ -39,18 +38,6 @@ function forwardToot(info: chrome.contextMenus.OnClickData, favourite: boolean, 
   })
 }
 
-function favouriteAndBoost(info: chrome.contextMenus.OnClickData) {
-  forwardToot(info, true, true)
-}
-
-function favourite(info: chrome.contextMenus.OnClickData) {
-  forwardToot(info, true, false)
-}
-
-function forward(info: chrome.contextMenus.OnClickData) {
-  forwardToot(info, false, false)
-}
-
 function loadContextMenus() {
   chrome.contextMenus.removeAll();
   chrome.storage.local.get(['name'], (value) => {
@@ -60,19 +47,55 @@ function loadContextMenus() {
           "title": `${value['name']}に転送してお気に入り＆ブースト`,
           "type": "normal",
           "contexts": ["link"],
-          "onclick": favouriteAndBoost
+          "onclick": (info: chrome.contextMenus.OnClickData) => {
+            const tootUrl = info.linkUrl
+            forwardToot(tootUrl, true, true)
+          }
         },
         {
           "title": `${value['name']}に転送してお気に入り`,
           "type": "normal",
           "contexts": ["link"],
-          "onclick": favourite
+          "onclick": (info: chrome.contextMenus.OnClickData) => {
+            const tootUrl = info.linkUrl
+            forwardToot(tootUrl, true, false)
+          }
         },
         {
           "title": `${value['name']}に転送`,
           "type": "normal",
           "contexts": ["link"],
-          "onclick": forward
+          "onclick": (info: chrome.contextMenus.OnClickData) => {
+            const tootUrl = info.linkUrl
+            forwardToot(tootUrl, false, false)
+          }
+        },
+        {
+          "title": `表示中のトゥートを${value['name']}に転送してお気に入り＆ブースト`,
+          "type": "normal",
+          "contexts": ["page"],
+          "onclick": (info: chrome.contextMenus.OnClickData) => {
+            const tootUrl = info.pageUrl
+            forwardToot(tootUrl, true, true)
+          }
+        },
+        {
+          "title": `表示中のトゥートを${value['name']}に転送してお気に入り`,
+          "type": "normal",
+          "contexts": ["page"],
+          "onclick": (info: chrome.contextMenus.OnClickData) => {
+            const tootUrl = info.pageUrl
+            forwardToot(tootUrl, true, false)
+          }
+        },
+        {
+          "title": `表示中のトゥートを${value['name']}に転送`,
+          "type": "normal",
+          "contexts": ["page"],
+          "onclick": (info: chrome.contextMenus.OnClickData) => {
+            const tootUrl = info.pageUrl
+            forwardToot(tootUrl, false, false)
+          }
         }
       ];
       for (let v of m) chrome.contextMenus.create(v);
