@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "トゥートを転送くん",
+    "name": "トゥートを別サーバに転送",
     "version": "1.0.0.0",
     "permissions": [
         "contextMenus",
