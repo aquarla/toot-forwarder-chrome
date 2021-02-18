@@ -15,8 +15,8 @@ window.onload = () => {
       const element: HTMLInputElement = <HTMLInputElement>document.getElementById(item);
       if (value[item]) {
         element.value = value[item];
-        element.disabled = false;
       }
+      element.disabled = false;
     });
   });
 
