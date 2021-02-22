@@ -52,7 +52,6 @@ window.onload = () => {
     }).then((response: AxiosResponse<MastodonApiAppsResponse>) => {
       const clientId = response.data.client_id;
       const clientSecret = response.data.client_secret;
-      console.log(response.data);
       chrome.identity.launchWebAuthFlow({
         url: `https://${domain}/oauth/authorize?client_id=${clientId}&scope=read:accounts+read:search+write:statuses+write:favourites&redirect_uri=${encodeURI(redirectUri)}&response_type=code`,
         interactive: true
