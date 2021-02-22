@@ -10,7 +10,8 @@
     "background": {
         "scripts": [
             "dist/vendor.js",
-            "dist/contextmenu.js"
+            "dist/contextmenu.js",
+            "dist/background.js"
         ],
         "persistent": true
     },

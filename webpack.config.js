@@ -5,6 +5,7 @@ module.exports = {
   entry: {
     contextmenu: path.resolve(__dirname, 'src', 'contextmenu.ts'),
     options: path.resolve(__dirname, 'src', 'options.ts'),
+    background: path.resolve(__dirname, 'src', 'background.ts'),
     vendor: ['axios', 'materialize-css']
   },
   output: {
