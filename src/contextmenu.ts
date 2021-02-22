@@ -44,6 +44,18 @@ function loadContextMenus() {
     if (value['name']) {
       const m = [
         {
+          'title': '転送先のマストドンサーバーを変更',
+          'type': 'normal',
+          'contexts': ['page', 'link'],
+          'onclick': () => {
+            chrome.runtime.openOptionsPage();
+          }
+        },
+        {
+          'type' : 'separator',
+          'contexts': ['page', 'link']
+        },
+        {
           'title': `${value['name']}に転送してお気に入り＆ブースト`,
           'type': 'normal',
           'contexts': ['link'],
@@ -95,6 +107,18 @@ function loadContextMenus() {
           'onclick': (info: chrome.contextMenus.OnClickData) => {
             const tootUrl = info.pageUrl;
             forwardToot(tootUrl, false, false);
+          }
+        }
+      ];
+      for (const v of m) chrome.contextMenus.create(v);
+    } else {
+      const m = [
+        {
+          'title': '転送先のマストドンサーバーを追加',
+          'type': 'normal',
+          'contexts': ['page', 'link'],
+          'onclick': () => {
+            chrome.runtime.openOptionsPage();
           }
         }
       ];
