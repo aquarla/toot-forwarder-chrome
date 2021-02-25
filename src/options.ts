@@ -20,6 +20,16 @@ interface MastdodonApiTokenResponse {
 }
 
 window.onload = () => {
+  // i18n
+  const elements = document.getElementsByTagName('html');
+  Array.prototype.forEach.call(elements, (element : HTMLHtmlElement) => {
+    const html = element.innerHTML.toString();
+    const newHtml = html.replace(/__MSG_(\w+)__/g, (match, value) => { return value ? chrome.i18n.getMessage(value) : ''; });
+    if (newHtml != html) {
+      element.innerHTML = newHtml;
+    }
+  });
+
   ['name', 'domain'].forEach(item => {
     chrome.storage.local.get(item, (value) => {
       const element: HTMLInputElement = <HTMLInputElement>document.getElementById(item);
@@ -46,7 +56,7 @@ window.onload = () => {
     }
 
     instance.post('/api/v1/apps', {
-      'client_name': 'トゥートを別サーバに転送',
+      'client_name': chrome.i18n.getMessage('extName'),
       'redirect_uris': redirectUri,
       'scopes' : 'read:accounts read:search write:statuses write:favourites'
     }).then((response: AxiosResponse<MastodonApiAppsResponse>) => {
@@ -74,15 +84,15 @@ window.onload = () => {
               access_token: accessToken
             };
             chrome.storage.local.set(values, () => {
-              alert('サーバ情報を保存しました');
+              alert(chrome.i18n.getMessage('setting_succeeded'));
             });
           }
         }).catch(() => {
-          alert('サーバ情報の保存に失敗しました。設定内容を確認してください');
+          alert(chrome.i18n.getMessage('failed_to_connect'));
         });
       });
     }).catch(() => {
-      alert('サーバへの接続に失敗しました。設定内容を確認してください');
+      alert(chrome.i18n.getMessage('failed_to_connect'));
     });
   };
 };

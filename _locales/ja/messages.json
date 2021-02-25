@@ -1,0 +1,19 @@
+{
+    "extName": { "message": "トゥートを別サーバに転送" },
+    "add_target_server" : { "message" : "転送先のマストドンサーバーを追加" },
+    "change_target_server" : { "message" : "転送先のマストドンサーバーを変更" },
+    "display_name" : { "message" : "表示名" },
+    "domain" : { "message" : "ドメイン" },
+    "boost_toot" : { "message" : "$display_name$に転送してお気に入り＆ブースト", "placeholders" : {"display_name" : {"content" : "$1"} } },
+    "favourite_toot" : { "message" : "$display_name$に転送してお気に入り", "placeholders" : {"display_name" : {"content" : "$1"} } },
+    "forward_toot" : { "message" : "$display_name$に転送", "placeholders" : {"display_name" : {"content" : "$1"} } },
+    "boost_current_toot" : { "message" : "表示中のトゥートを$display_name$に転送してお気に入り＆ブースト", "placeholders" : {"display_name" : {"content" : "$1"} } },
+    "favourite_current_toot" : { "message" : "表示中のトゥートを$display_name$に転送してお気に入り", "placeholders" : {"display_name" : {"content" : "$1"} } },
+    "forward_current_toot" : { "message" : "表示中のトゥートを$display_name$に転送", "placeholders" : {"display_name" : {"content" : "$1"} } },
+    "open_authorization_page" : { "message" : "認証画面を開く" },
+    "settings" : { "message" : "設定" },
+    "target_server" :  {"message" : "転送先サーバ" }, 
+    "target_server_explanation" : { "message" : "トゥートの転送先に設定する Mastodon サーバを設定してください" },
+    "setting_succeeded" : { "message" : "サーバ情報を保存しました。" },
+    "failed_to_connect" : { "message" : "サーバへの接続に失敗しました。設定内容を確認してください。" }
+}

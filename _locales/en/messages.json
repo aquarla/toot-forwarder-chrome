@@ -1,0 +1,19 @@
+{
+    "extName": { "message": "Mastodon Toot Forwarder" },
+    "add_target_server" : { "message" : "Add target Mastodon server" },
+    "change_target_server" : { "message" : "Change target Mastodon server" },
+    "display_name" : { "message" : "Display name" },
+    "domain" : { "message" : "Domain" },
+    "boost_toot" : { "message" : "Forward, favourite and boost this toot to $display_name$", "placeholders" : {"display_name" : {"content" : "$1"} } },
+    "favourite_toot" : { "message" : "Forward and favourite this toot to $display_name$", "placeholders" : {"display_name" : {"content" : "$1"} } },
+    "forward_toot" : { "message" : "Forward this toot to $display_name$", "placeholders" : {"display_name" : {"content" : "$1"} } },
+    "boost_current_toot" : { "message" : "Forward, favourite and boost this toot to $display_name$", "placeholders" : {"display_name" : {"content" : "$1"} } },
+    "favourite_current_toot" : { "message" : "Forward and favourite this toot to $display_name$", "placeholders" : {"display_name" : {"content" : "$1"} } },
+    "forward_current_toot" : { "message" : "Forward this toot to $display_name$", "placeholders" : {"display_name" : {"content" : "$1"} } },
+    "open_authorization_page" : { "message" : "Open authorization page" },
+    "settings" : { "message" : "Settings" },
+    "target_server" :  {"message" : "Target server" }, 
+    "target_server_explanation" : { "message" : "Specify target Mastodon server." },
+    "setting_succeeded" : { "message" : "Setting succeeded." },
+    "failed_to_connect" : { "message" : "Failed to connect Mastodon server." }
+}

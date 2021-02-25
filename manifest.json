@@ -1,6 +1,6 @@
 {
     "manifest_version": 2,
-    "name": "トゥートを別サーバに転送",
+    "name": "__MSG_extName__",
     "version": "1.1.0.0",
     "permissions": [
         "contextMenus",
@@ -15,6 +15,7 @@
         ],
         "persistent": true
     },
+    "default_locale": "en",
     "icons": {
         "16":  "icons/16.png",
         "48":  "icons/48.png",

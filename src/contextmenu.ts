@@ -44,7 +44,7 @@ function loadContextMenus() {
     if (value['name']) {
       const m = [
         {
-          'title': '転送先のマストドンサーバーを変更',
+          'title': chrome.i18n.getMessage('change_target_server'),
           'type': 'normal',
           'contexts': ['page', 'link'],
           'onclick': () => {
@@ -56,7 +56,7 @@ function loadContextMenus() {
           'contexts': ['page', 'link']
         },
         {
-          'title': `${value['name']}に転送してお気に入り＆ブースト`,
+          'title': chrome.i18n.getMessage('boost_toot', [ value['name'] ] ),
           'type': 'normal',
           'contexts': ['link'],
           'onclick': (info: chrome.contextMenus.OnClickData) => {
@@ -65,7 +65,7 @@ function loadContextMenus() {
           }
         },
         {
-          'title': `${value['name']}に転送してお気に入り`,
+          'title': chrome.i18n.getMessage('favourite_toot', [ value['name'] ] ),
           'type': 'normal',
           'contexts': ['link'],
           'onclick': (info: chrome.contextMenus.OnClickData) => {
@@ -74,7 +74,7 @@ function loadContextMenus() {
           }
         },
         {
-          'title': `${value['name']}に転送`,
+          'title': chrome.i18n.getMessage('forward_toot', [ value['name'] ] ),
           'type': 'normal',
           'contexts': ['link'],
           'onclick': (info: chrome.contextMenus.OnClickData) => {
@@ -83,7 +83,7 @@ function loadContextMenus() {
           }
         },
         {
-          'title': `表示中のトゥートを${value['name']}に転送してお気に入り＆ブースト`,
+          'title': chrome.i18n.getMessage('boost_current_toot', [ value['name'] ] ),
           'type': 'normal',
           'contexts': ['page'],
           'onclick': (info: chrome.contextMenus.OnClickData) => {
@@ -92,7 +92,7 @@ function loadContextMenus() {
           }
         },
         {
-          'title': `表示中のトゥートを${value['name']}に転送してお気に入り`,
+          'title': chrome.i18n.getMessage('favourite_current_toot', [ value['name'] ] ),
           'type': 'normal',
           'contexts': ['page'],
           'onclick': (info: chrome.contextMenus.OnClickData) => {
@@ -101,7 +101,7 @@ function loadContextMenus() {
           }
         },
         {
-          'title': `表示中のトゥートを${value['name']}に転送`,
+          'title': chrome.i18n.getMessage('forward_current_toot', [ value['name'] ] ),
           'type': 'normal',
           'contexts': ['page'],
           'onclick': (info: chrome.contextMenus.OnClickData) => {
@@ -114,7 +114,7 @@ function loadContextMenus() {
     } else {
       const m = [
         {
-          'title': '転送先のマストドンサーバーを追加',
+          'title': chrome.i18n.getMessage('add_target_server'),
           'type': 'normal',
           'contexts': ['page', 'link'],
           'onclick': () => {
